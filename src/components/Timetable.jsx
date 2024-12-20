@@ -47,7 +47,8 @@ const Timetable = () => {
                   if(!course){
                     return
                   }
-                  confirmResult = confirm(`Are you sure you want to remove '${course.name}'?`)
+                  const confirmResult = confirm(`Are you sure you want to remove '${course.name}'?`)
+                  console.log(confirmResult);
                   if(confirmResult === true) {
                     handleRemoveCourse(course)
                   }
