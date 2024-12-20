@@ -38,10 +38,10 @@
   height: calc(100vh - 64px);
 }
 
-.timetable {
+/* .timetable {
   height: 50%;
   overflow-y: auto;
-}
+} */
 
 .course-management {
   display: flex;
@@ -126,10 +126,10 @@
   height: calc(100vh - 64px); 
 }
 
-.timetable {
+/* .timetable {
   height: 50%;
   overflow-y: auto;
-}
+} */
 
 .course-management {
   display: flex;
@@ -149,6 +149,21 @@
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+}
+
+.btn-container {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.btn {
+  width: 10%;
+  padding: 0.5rem;
+  margin: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 0.25rem;
 }

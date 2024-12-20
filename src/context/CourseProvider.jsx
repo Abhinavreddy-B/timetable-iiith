@@ -18,13 +18,27 @@ const CourseProvider = ({ children }) => {
     );
     setAllCourses(flattenedCourses);
     setAvailableCourses(flattenedCourses);
+
+    handlePageLoad();
   }, []);
+
+  useEffect(() => {
+    if(!selectedCourses || selectedCourses.length === 0) return;
+    window.localStorage.setItem('selectedCourses', JSON.stringify(selectedCourses));
+  }, [selectedCourses])
 
   const filterCourses = () => {
     return availableCourses.filter(course => 
       course.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   };
+
+  const handlePageLoad = () => {
+    const storedSelectedCourses = window.localStorage.getItem('selectedCourses');
+    if (storedSelectedCourses) {
+      setSelectedCourses(JSON.parse(storedSelectedCourses));
+    }
+  }
 
   const handleCourseSelect = (selectedCourse) => {
     setSelectedCourses(prev => [...prev, selectedCourse]);
@@ -73,6 +87,7 @@ const CourseProvider = ({ children }) => {
         handleCourseSelect,
         handleSearchChange,
         handleRemoveCourse,
+        handlePageLoad,
         setIsModalOpen
       }}
     >
